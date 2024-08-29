@@ -19,7 +19,7 @@ function AdminProject() {
 
     try {
         const res = await axios.delete(
-            `http://127.0.0.1:5000/api/portfolio/delete-projects/${item.id}`
+            `https://dan-portfolio-backend.onrender.com/api/portfolio/delete-projects/${item.id}`
         );
         if (res.status === 200) {
             message.success("Project deleted successfully");
@@ -38,7 +38,7 @@ function AdminProject() {
   const getData = async () => {
     try {
       const res = await axios.get(
-        "http://127.0.0.1:5000/api/portfolio/get-project"
+        "https://dan-portfolio-backend.onrender.com/api/portfolio/get-project"
       );
       setData(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {

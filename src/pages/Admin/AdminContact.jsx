@@ -8,7 +8,7 @@ function AdminContact() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:5000/api/portfolio/get-contacts");
+      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-contacts");
       console.log("res", res.data[0]);
       setData(res.data);
     } catch (error) {
@@ -25,7 +25,7 @@ function AdminContact() {
 
   const onFinish = async (values) => {
     try {
-      const res = await axios.put("http://127.0.0.1:5000/api/portfolio/update-contacts", values);
+      const res = await axios.put("https://dan-portfolio-backend.onrender.com/api/portfolio/update-contacts", values);
       console.log("Update response:", res.data);
       message.success("Contact updated successfully");
       getData(); // Refresh the data after update

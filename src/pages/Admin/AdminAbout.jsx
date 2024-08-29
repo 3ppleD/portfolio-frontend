@@ -13,7 +13,7 @@ function AdminAbout() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:5000/api/portfolio/abouts");
+      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/abouts");
       console.log("res", res.data[0]);
       setData(res.data[0]);
       if (res.data[0] && res.data[0].lottieURL) {
@@ -46,7 +46,7 @@ function AdminAbout() {
         }
       });
 
-      const res = await axios.put("http://127.0.0.1:5000/api/portfolio/abouts", formData, {
+      const res = await axios.put("https://dan-portfolio-backend.onrender.com/api/portfolio/abouts", formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

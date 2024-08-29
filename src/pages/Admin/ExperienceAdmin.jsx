@@ -11,7 +11,7 @@ function ExperienceAdmin() {
   const onDelete = async (item) => {
     try {
       await axios.delete(
-        `http://127.0.0.1:5000/api/portfolio/del-experience/${item.id}`
+        `https://dan-portfolio-backend.onrender.com/api/portfolio/del-experience/${item.id}`
       );
       message.success("Experience deleted successfully");
       getData();
@@ -30,7 +30,7 @@ function ExperienceAdmin() {
   const getData = async () => {
     try {
       const res = await axios.get(
-        "http://127.0.0.1:5000/api/portfolio/get-experience"
+        "https://dan-portfolio-backend.onrender.com/api/portfolio/get-experience"
       );
       setData(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {
@@ -48,13 +48,13 @@ function ExperienceAdmin() {
       let res;
       if (selectedItemForEdit) {
         res = await axios.put(
-          `http://127.0.0.1:5000/api/portfolio/update-experience/${selectedItemForEdit.id}`,
+          `https://dan-portfolio-backend.onrender.com/api/portfolio/update-experience/${selectedItemForEdit.id}`,
           values
         );
         message.success("Experience updated successfully");
       } else {
         res = await axios.post(
-          "http://127.0.0.1:5000/api/portfolio/add-experience",
+          "https://dan-portfolio-backend.onrender.com/api/portfolio/add-experience",
           values
         );
         message.success("Experience added successfully");
