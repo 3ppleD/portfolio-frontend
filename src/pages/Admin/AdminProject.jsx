@@ -65,13 +65,13 @@ function AdminProject() {
       let res;
       if (selectedItemForEdit) {
         res = await axios.put(
-          `http://127.0.0.1:5000/api/portfolio/update-projects/${selectedItemForEdit.id}`,
+          `https://dan-portfolio-backend.onrender.com/api/portfolio/update-projects/${selectedItemForEdit.id}`,
           formData
         );
         message.success("Project updated successfully");
       } else {
         res = await axios.post(
-          "http://127.0.0.1:5000/api/portfolio/add-projects",
+          "https://dan-portfolio-backend.onrender.com/api/portfolio/add-projects",
           formData
         );
         message.success("Project added successfully");
