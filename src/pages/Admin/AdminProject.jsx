@@ -57,26 +57,26 @@ function AdminProject() {
       formData.append("title", values.title);
       formData.append("description1", values.description1);
       formData.append("description2", values.description2);
-  
+
       if (file) {
         formData.append("img_url", file);
       }
-  
+
       let res;
       if (selectedItemForEdit) {
         res = await axios.put(
-          `https://dan-portfolio-backend.onrender.com/api/portfolio/update-projects/${selectedItemForEdit.id}`,
+          `http://127.0.0.1:5000/api/portfolio/update-projects/${selectedItemForEdit.id}`,
           formData
         );
         message.success("Project updated successfully");
       } else {
         res = await axios.post(
-          "https://dan-portfolio-backend.onrender.com/api/portfolio/add-projects",
+          "http://127.0.0.1:5000/api/portfolio/add-projects",
           formData
         );
         message.success("Project added successfully");
       }
-  
+
       setShowAddEditModal(false);
       form.resetFields();
       setFile(null);
