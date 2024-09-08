@@ -7,7 +7,7 @@ function Intro() {
   const getData = async()=>{
     
     try {
-     const res =  await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/intros")
+     const res =  await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/intros", { headers: { 'Cache-Control': 'no-cache' } });
         console.log("res",res.data[0])
         setData(res.data)
     } catch (error) {

@@ -12,7 +12,7 @@ function Projects() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-project");
+      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-project", { headers: { 'Cache-Control': 'no-cache' } });
       console.log("res", res.data);
       setData(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {

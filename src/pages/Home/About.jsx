@@ -7,7 +7,7 @@ function About() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/abouts");
+      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/abouts",{ headers: { 'Cache-Control': 'no-cache' } });
       console.log("res", res.data);
       setData(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {
