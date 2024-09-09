@@ -13,11 +13,12 @@ function AdminAbout() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/abouts");
+      const timestamp = new Date().getTime();
+      const res = await axios.get(`https://dan-portfolio-backend.onrender.com/api/portfolio/abouts?t=${timestamp}`);
       console.log("res", res.data[0]);
       setData(res.data[0]);
       if (res.data[0] && res.data[0].lottieURL) {
-        setImageUrl(res.data[0].lottieURL);
+        setImageUrl(`${res.data[0].lottieURL}?t=${timestamp}`);
       }
     } catch (error) {
       console.log(error);
@@ -46,7 +47,8 @@ function AdminAbout() {
         }
       });
 
-      const res = await axios.put("https://dan-portfolio-backend.onrender.com/api/portfolio/abouts", formData, {
+      const timestamp = new Date().getTime();
+      const res = await axios.put(`https://dan-portfolio-backend.onrender.com/api/portfolio/abouts?t=${timestamp}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -99,13 +101,13 @@ function AdminAbout() {
         </Upload>
       </Form.Item>
       <Form.Item name="description1" label="First Description">
-        <TextArea placeholder="First Description"autoSize={{ minRows: 4, maxRows: 6 }} />
+        <TextArea placeholder="First Description" autoSize={{ minRows: 4, maxRows: 6 }} />
       </Form.Item>
       <Form.Item name="description2" label="Second Description">
         <TextArea placeholder="Second Description" autoSize={{ minRows: 4, maxRows: 6 }}/>
       </Form.Item>
       <Form.Item name="skills" label="Skills Set">
-        <TextArea placeholder="Skills Set (comma-separated)"autoSize={{ minRows: 4, maxRows: 6 }} />
+        <TextArea placeholder="Skills Set (comma-separated)" autoSize={{ minRows: 4, maxRows: 6 }} />
       </Form.Item>
       <Form.Item className="flex justify-end">
         <Button

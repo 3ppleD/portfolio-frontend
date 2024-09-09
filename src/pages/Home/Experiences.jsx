@@ -8,7 +8,7 @@ function Experiences() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-experience", { headers: { 'Cache-Control': 'no-cache' } });
+      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-experience");
       console.log("res", res.data);
       setData(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {

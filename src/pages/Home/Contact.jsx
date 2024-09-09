@@ -8,7 +8,7 @@ function Contact() {
  const getData = async()=>{
    
    try {
-    const res =  await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-contacts", { headers: { 'Cache-Control': 'no-cache' } });
+    const res =  await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-contacts");
        console.log("res",res.data[0])
        setData(res.data)
  } catch (error){
