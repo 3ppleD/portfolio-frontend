@@ -16,7 +16,7 @@ function Home() {
     // Simulating an API call or some async operation
     const timer = setTimeout(() => {
       setLoading(false); // Hide loader when operation is complete
-    }, 2000); // Adjust this time as needed
+    }, 4000); // Adjust this time as needed
 
     // Clean up function
     return () => clearTimeout(timer);

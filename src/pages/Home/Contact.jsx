@@ -8,7 +8,7 @@ function Contact() {
  const getData = async()=>{
    
    try {
-    const res =  await axios.get("https://backend-mongodb-63yq.onrender.com/api/portfolio/contacts");
+    const res =  await axios.get("https://backend-mongodb-63yq.onrender.com/api/portfolio/get-contacts");
        console.log("res",res.data[0])
        setData(res.data)
  } catch (error){
