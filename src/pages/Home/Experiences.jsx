@@ -8,7 +8,7 @@ function Experiences() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/get-experience");
+      const res = await axios.get("https://backend-mongodb-63yq.onrender.com/api/portfolio/get-experiences");
       console.log("res", res.data);
       setData(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {

@@ -9,7 +9,7 @@ function AdminIntro() {
   const getData = async () => {
     try {
       const timestamp = new Date().getTime();
-      const res = await axios.get(`https://dan-portfolio-backend.onrender.com/api/portfolio/intros?t=${timestamp}`);
+      const res = await axios.get(`https://backend-mongodb-63yq.onrender.com/api/portfolio/get-intros?t=${timestamp}`);
       console.log("res", res.data[0]);
       setData(res.data);
     } catch (error) {
@@ -27,7 +27,7 @@ function AdminIntro() {
   const onFinish = async (values) => {
     try {
       const timestamp = new Date().getTime();
-      const res = await axios.put(`https://dan-portfolio-backend.onrender.com/api/portfolio/intros?t=${timestamp}`, values);
+      const res = await axios.put(`https://backend-mongodb-63yq.onrender.com/api/portfolio/update-intros?t=${timestamp}`, values);
       console.log("Update response:", res.data);
       message.success("Intro updated successfully");
       getData(); // Refresh the data after update

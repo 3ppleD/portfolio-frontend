@@ -19,7 +19,7 @@ function AdminProject() {
 
     try {
         const res = await axios.delete(
-            `https://dan-portfolio-backend.onrender.com/api/portfolio/delete-projects/${item.id}`
+            `https://backend-mongodb-63yq.onrender.com/api/portfolio/del-projects/${item.id}`
         );
         if (res.status === 200) {
             message.success("Project deleted successfully");
@@ -38,7 +38,7 @@ function AdminProject() {
   const getData = async () => {
     try {
       const res = await axios.get(
-        "https://dan-portfolio-backend.onrender.com/api/portfolio/get-project"
+        "https://backend-mongodb-63yq.onrender.com/api/portfolio/get-projects"
       );
       setData(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {
@@ -65,13 +65,13 @@ function AdminProject() {
       let res;
       if (selectedItemForEdit) {
         res = await axios.put(
-          `https://dan-portfolio-backend.onrender.com/api/portfolio/update-projects/${selectedItemForEdit.id}`,
+          `https://backend-mongodb-63yq.onrender.com/api/portfolio/update-projects/${selectedItemForEdit.id}`,
           formData
         );
         message.success("Project updated successfully");
       } else {
         res = await axios.post(
-          "https://dan-portfolio-backend.onrender.com/api/portfolio/add-projects",
+          "https://backend-mongodb-63yq.onrender.com/api/portfolio/post-projects",
           formData
         );
         message.success("Project added successfully");

@@ -7,7 +7,7 @@ function Intro() {
   const getData = async()=>{
     
     try {
-     const res =  await axios.get("https://dan-portfolio-backend.onrender.com/api/portfolio/intros");
+     const res =  await axios.get("https://backend-mongodb-63yq.onrender.com/api/portfolio/get-intros");
         console.log("res",res.data[0])
         setData(res.data)
     } catch (error) {

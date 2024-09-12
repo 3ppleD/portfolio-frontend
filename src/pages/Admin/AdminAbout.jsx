@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Input, Button, message, Upload, Image } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
-import LeftSider from "../Home/LeftSider";
+
 
 const { TextArea } = Input;
 
@@ -14,7 +14,7 @@ function AdminAbout() {
   const getData = async () => {
     try {
       const timestamp = new Date().getTime();
-      const res = await axios.get(`https://dan-portfolio-backend.onrender.com/api/portfolio/abouts?t=${timestamp}`);
+      const res = await axios.get(`https://backend-mongodb-63yq.onrender.com/api/portfolio/get-abouts?t=${timestamp}`);
       console.log("res", res.data[0]);
       setData(res.data[0]);
       if (res.data[0] && res.data[0].lottieURL) {
@@ -48,7 +48,7 @@ function AdminAbout() {
       });
 
       const timestamp = new Date().getTime();
-      const res = await axios.put(`https://dan-portfolio-backend.onrender.com/api/portfolio/abouts?t=${timestamp}`, formData, {
+      const res = await axios.put(`https://backend-mongodb-63yq.onrender.com/api/portfolio/update-intros?t=${timestamp}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
